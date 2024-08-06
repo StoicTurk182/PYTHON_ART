@@ -1,0 +1,30 @@
+# Ask for confirmation
+Rename-Item C:\temp\test.txt -NewName test.log -Confirm
+# Result
+Confirm
+Are you sure you want to perform this action?
+Performing the operation "Rename File" on target "Item: C:\temp\test.txt Destination: C:\temp\test.log".
+[Y] Yes  [A] Yes to All  [N] No  [L] No to All  [S] Suspend  [?] Help (default is "Y"):
+
+
+
+Get-ChildItem *.txt
+
+Directory: C:\Users\andrew.jones\Desktop\Rename Folder
+
+Mode                LastWriteTime         Length Name
+----                -------------         ------ ----
+-a----        10/3/2019   7:47 AM           2918 Friday.TXT
+-a----        10/3/2019   7:46 AM           2918 Monday.Txt
+-a----        10/3/2019   7:47 AM           2918 Wednesday.txt
+
+Get-ChildItem *.txt | Rename-Item -NewName { $_.Name -replace '.txt','.log' }
+Get-ChildItem *.log
+
+Directory: C:\temp\files
+
+Mode                LastWriteTime         Length Name
+----                -------------         ------ ----
+-a----        10/3/2019   7:47 AM           2918 Friday.log
+-a----        10/3/2019   7:46 AM           2918 Monday.log
+-a----        10/3/2019   7:47 AM           2918 Wednesday.log
